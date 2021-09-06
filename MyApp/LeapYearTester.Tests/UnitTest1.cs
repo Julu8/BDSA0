@@ -9,9 +9,9 @@ namespace LeapYearTester.Tests
     {
 
         [Theory]
-        [InlineData(1)]
-        [InlineData(100)]
-        [InlineData(200)]
+        [InlineData(2001)]
+        [InlineData(2100)]
+        [InlineData(2200)]
         public void TestFalse(int year)
         {
             var result = new LeapYearChecker.Program().isLeapYear(year);
@@ -19,19 +19,19 @@ namespace LeapYearTester.Tests
         }
 
         [Theory]
-        [InlineData(4)]
-        [InlineData(400)]
-        [InlineData(800)]
+        [InlineData(2004)]
+        [InlineData(2400)]
+        [InlineData(2800)]
         public void TestTrue(int year){
             var result = new LeapYearChecker.Program().isLeapYear(year);
             Assert.True(result, $"{year} should be a leap year.");
         }
         
         [Theory]
-        [InlineData("1")]
-        [InlineData("6")]
-        [InlineData("100")]
-        [InlineData("200")]
+        [InlineData("2001")]
+        [InlineData("2006")]
+        [InlineData("2100")]
+        [InlineData("2200")]
         public void UserTestFalse(string year){
             var writer = new StringWriter();
             var input = new StringReader(year);
@@ -47,9 +47,9 @@ namespace LeapYearTester.Tests
         }
 
         [Theory]
-        [InlineData("4")]
-        [InlineData("400")]
-        [InlineData("800")]
+        [InlineData("2004")]
+        [InlineData("2400")]
+        [InlineData("2800")]
         public void UserTestTrue(string year){
             var writer = new StringWriter();
             var input = new StringReader(year);
@@ -63,6 +63,5 @@ namespace LeapYearTester.Tests
 
             Assert.Equal($"Enter Year: Yay", output);
         }
-
     }
 }
